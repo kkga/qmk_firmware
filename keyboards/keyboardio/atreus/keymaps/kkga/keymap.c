@@ -24,7 +24,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     NAV_ESC, KC_TAB,  KC_LGUI, KC_LGUI, KC_SPC,  KC_LCTL, KC_LALT, KC_BSPC, MO(_SYM), KC_MINS, KC_QUOT, KC_ENT ),
 //-------------------------------------------------------//-------------------------------------------------------//
 
-  [_SYM] = LAYOUT( /* [> RAISE <] */
+  [_SYM] = LAYOUT( /* Symbols on the left, Numpad on the right */
 //-------------------------------------------------------//-------------------------------------------------------//
     KC_EXLM, KC_AT,   KC_LCBR, KC_RCBR, KC_PERC,                  KC_MINS, KC_7,    KC_8,   KC_9, KC_EQL,
 //-------------------------------------------------------//-------------------------------------------------------//
@@ -32,10 +32,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //-------------------------------------------------------//-------------------------------------------------------//
     KC_PERC, KC_CIRC, KC_HASH, KC_LCBR, KC_RCBR, KC_CIRC, KC_AMPR,KC_ASTR, KC_1,    KC_2,   KC_3, KC_PLUS,
 //-------------------------------------------------------//-------------------------------------------------------//
-    TG(_LW), KC_INS,  KC_LGUI, KC_LSFT, KC_BSPC, KC_LCTL, KC_LALT,KC_SPC,  KC_TRNS, KC_DOT, KC_0, KC_EQL ),
+    _______, KC_INS,  KC_LGUI, KC_LSFT, KC_BSPC, KC_LCTL, KC_LALT,KC_SPC,  KC_TRNS, KC_DOT, KC_0, KC_EQL ),
 //-------------------------------------------------------//-------------------------------------------------------//
 
-  [_NAV] = LAYOUT( /* [> LOWER <] */
+  [_NAV] = LAYOUT( /* System keys on the left, Vim-style arrows on the right */
 //-------------------------------------------------------//-------------------------------------------------------//
     KC_INS,  KC_HOME, KC_UP,   KC_END,  KC_PGUP,                   KC_UP,   KC_F7,   KC_F8,   KC_F9,   KC_F10  ,
 //-------------------------------------------------------//-------------------------------------------------------//
