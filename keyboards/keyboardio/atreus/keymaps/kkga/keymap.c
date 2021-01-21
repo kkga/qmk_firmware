@@ -2,22 +2,16 @@
 
 #include QMK_KEYBOARD_H
 
-enum layer_names {
-    _QWR,
-    _SYM,
-    _NAV
-};
-
 #define SFT_Z SFT_T(KC_Z)
 #define SFT_SLSH SFT_T(KC_SLSH)
-#define NAV_ESC LT(_NAV, KC_ESC)
+#define NAV_ESC LT(2, KC_ESC)
 #define UNDO C(KC_Z)
 #define CUT C(KC_X)
 #define COPY C(KC_C)
 #define PASTE C(KC_V)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-  [_QWR] = LAYOUT( /* Qwerty */
+  [0] = LAYOUT( /* Qwerty */
 //-------------------------------------------------------//-------------------------------------------------------//
     KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                      KC_Y,    KC_U,     KC_I,    KC_O,    KC_P    ,
 //-------------------------------------------------------//-------------------------------------------------------//
@@ -25,21 +19,21 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //-------------------------------------------------------//-------------------------------------------------------//
     SFT_Z,   KC_X,    KC_C,    KC_V,    KC_B,    KC_TAB,  _______, KC_N,    KC_M,     KC_COMM, KC_DOT,  SFT_SLSH,
 //-------------------------------------------------------//-------------------------------------------------------//
-    NAV_ESC, _______, _______, KC_LGUI, KC_SPC,  KC_LCTL, KC_LALT, KC_BSPC, MO(_SYM), KC_MINS, KC_SCLN, KC_ENT ),
+    NAV_ESC, TO(0), _______, KC_LGUI, KC_SPC,  KC_LCTL, KC_LALT, KC_BSPC, MO(1), KC_MINS, KC_SCLN, KC_ENT ),
 //-------------------------------------------------------//-------------------------------------------------------//
 
-  [_SYM] = LAYOUT( /* Symbols on the left, Numpad on the right */
+  [1] = LAYOUT( /* Symbols on the left, Numpad on the right */
 //-------------------------------------------------------//-------------------------------------------------------//
     KC_EXLM, KC_AT,   KC_LCBR, KC_RCBR, KC_GRV,                    KC_MINS, KC_7,     KC_8,    KC_9,    KC_EQL,
 //-------------------------------------------------------//-------------------------------------------------------//
     KC_HASH, KC_DLR,  KC_LPRN, KC_RPRN, KC_TILD,                   KC_UNDS, KC_4,     KC_5,    KC_6,    KC_PLUS,
 //-------------------------------------------------------//-------------------------------------------------------//
-    KC_PERC, KC_CIRC, KC_LBRC, KC_LRBC, KC_AMPR, _______, _______, KC_PIPE, KC_1,     KC_2,    KC_3,    KC_BSLS,
+    KC_PERC, KC_CIRC, KC_LBRC, KC_RBRC, KC_AMPR, _______, _______, KC_PIPE, KC_1,     KC_2,    KC_3,    KC_BSLS,
 //-------------------------------------------------------//-------------------------------------------------------//
-    _______, _______, _______, _______, _______, _______, _______, _______, _______,  KC_0,    KC_DOT,  _______, ),
+    _______, _______, _______, _______, _______, _______, _______, _______, _______,  KC_0,    KC_DOT,  _______),
 //-------------------------------------------------------//-------------------------------------------------------//
 
-  [_NAV] = LAYOUT( /* System keys on the left, Vim-style arrows on the right */
+  [2] = LAYOUT( /* System keys on the left, Vim-style arrows on the right */
 //-------------------------------------------------------//-------------------------------------------------------//
     RESET,   KC_VOLD, KC_MUTE, KC_VOLU, KC_BRIU,                   KC_CAPS, UNDO,    CUT,     COPY,    PASTE,
 //-------------------------------------------------------//-------------------------------------------------------//
