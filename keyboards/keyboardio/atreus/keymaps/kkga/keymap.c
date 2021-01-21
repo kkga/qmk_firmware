@@ -2,27 +2,44 @@
 
 #include QMK_KEYBOARD_H
 
+enum layers {
+  _DEF,
+  _SYM,
+  _NAV,
+  _FNC
+};
+
+enum {
+  TD_SCLN_CLN = 0
+};
+
+qk_tap_dance_action_t tap_dance_actions[] = {
+    // Tap once for Semicolon, twice for Colon
+    [TD_SCLN_CLN] = ACTION_TAP_DANCE_DOUBLE(KC_SCLN, KC_COLN),
+};
+
 #define SFT_Z SFT_T(KC_Z)
 #define SFT_SLSH SFT_T(KC_SLSH)
-#define NAV_ESC LT(2, KC_ESC)
+#define NAV_ESC LT(_NAV, KC_ESC)
 #define UNDO C(KC_Z)
 #define CUT C(KC_X)
 #define COPY C(KC_C)
 #define PASTE C(KC_V)
+#define SCL_CL TD(TD_SCLN_CLN)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-  [0] = LAYOUT( /* Qwerty */
+  [_DEF] = LAYOUT( /* Qwerty */
 //-------------------------------------------------------//-------------------------------------------------------//
-    KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                      KC_Y,    KC_U,     KC_I,    KC_O,    KC_P    ,
+    KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                      KC_Y,    KC_U,     KC_I,    KC_O,    KC_P,
 //-------------------------------------------------------//-------------------------------------------------------//
-    KC_A,    KC_S,    KC_D,    KC_F,    KC_G,                      KC_H,    KC_J,     KC_K,    KC_L,    KC_QUOT ,
+    KC_A,    KC_S,    KC_D,    KC_F,    KC_G,                      KC_H,    KC_J,     KC_K,    KC_L,    KC_QUOT,
 //-------------------------------------------------------//-------------------------------------------------------//
     SFT_Z,   KC_X,    KC_C,    KC_V,    KC_B,    KC_TAB,  _______, KC_N,    KC_M,     KC_COMM, KC_DOT,  SFT_SLSH,
 //-------------------------------------------------------//-------------------------------------------------------//
-    NAV_ESC, KC_TAB, KC_LALT, KC_LGUI, KC_SPC,  KC_LCTL, KC_LALT, KC_BSPC, MO(1),    _______, KC_SCLN, KC_ENT ),
+    NAV_ESC, KC_TAB,  KC_LALT, KC_LGUI, KC_SPC,  KC_LCTL, KC_LALT, KC_BSPC, MO(_SYM), _______, SCL_CL,  KC_ENT ),
 //-------------------------------------------------------//-------------------------------------------------------//
 
-  [1] = LAYOUT( /* Symbols on the left, Numpad on the right */
+  [_SYM] = LAYOUT( /* Symbols on the left, Numpad on the right */
 //-------------------------------------------------------//-------------------------------------------------------//
     KC_EXLM, KC_AT,   KC_LCBR, KC_RCBR, KC_GRV,                    KC_MINS, KC_7,     KC_8,    KC_9,    KC_EQL,
 //-------------------------------------------------------//-------------------------------------------------------//
@@ -33,14 +50,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______, _______, _______, _______, _______, _______, _______, _______, _______,  KC_0,    KC_DOT,  _______),
 //-------------------------------------------------------//-------------------------------------------------------//
 
-  [2] = LAYOUT( /* System keys on the left, Vim-style arrows on the right */
+  [_NAV] = LAYOUT( /* System keys on the left, Vim-style arrows on the right */
 //-------------------------------------------------------//-------------------------------------------------------//
-    RESET,   KC_VOLD, KC_MUTE, KC_VOLU, KC_BRIU,                   KC_CAPS, UNDO,    CUT,     COPY,    PASTE,
+    RESET,   KC_VOLD, KC_MUTE, KC_VOLU, KC_BRIU,                   KC_CAPS, UNDO,     CUT,     COPY,    PASTE,
 //-------------------------------------------------------//-------------------------------------------------------//
-    _______, KC_MPRV, KC_MPLY, KC_MNXT, KC_BRID,                   KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, KC_INS,
+    _______, KC_MPRV, KC_MPLY, KC_MNXT, KC_BRID,                   KC_LEFT, KC_DOWN,  KC_UP,   KC_RGHT, KC_INS,
 //-------------------------------------------------------//-------------------------------------------------------//
-    KC_LSFT, _______, _______, _______, _______, _______, _______, KC_HOME, KC_PGDN, KC_PGUP, KC_END,  KC_DEL,
+    KC_LSFT, _______, _______, _______, _______, _______, _______, KC_HOME, KC_PGDN,  KC_PGUP, KC_END,  KC_DEL,
 //-------------------------------------------------------//-------------------------------------------------------//
-    _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______ )
+    _______, _______, _______, _______, _______, _______, _______, _______, _______,  _______, _______, _______)
 //-------------------------------------------------------//-------------------------------------------------------//
 };
