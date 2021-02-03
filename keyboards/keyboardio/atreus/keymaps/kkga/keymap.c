@@ -47,33 +47,33 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ,--------------------------------------------.                  ,--------------------------------------------.
   |   q    |   w    |   e    |   r    |   t    |                  |   y    |   u    |   i    |   o    |   p    |
   |--------+--------+--------+--------+--------|                  |--------+--------+--------+--------+--------|
-  |   a    |   s    |   d    |   f    |   g    |                  |   h    |   j    |   k    |   l    |  ;_:   |
+  |   a    |   s    |   d    |   f    |   g    |                  |   h    |   j    |   k    |   l    |   ;    |
   |--------+--------+--------+--------+--------+--------.,--------+--------+--------+--------+--------+--------|
-  | Sft/z  |   x    |   c    |   v    |   b    |   `    ||   \    |   n    |   m    | Alt/,  | Ctl/.  | Sft//  |
+  | Sft/z  |   x    |   c    |   v    |   b    |   `    ||   \    |   n    |   m    |   ,    |   .    | Sft//  |
   |--------+--------+--------+--------+--------+--------||--------+--------+--------+--------+--------+--------|
-  |NAV/Esc |FNC/Tab |  Alt   |  Gui   |  Spc   |Ctl/Tab ||Ent/Alt |  Bspc  |  SYM   |   -    |  '_"   |  Ent   |
+  |NAV/Esc |FNC/Tab |  Alt   |  Gui   |  Spc   |Ctl/Tab ||Ent/Alt |  Bspc  |  SYM   |  Alt   |  Ctl   |  Ent   |
   `-----------------------------------------------------''-----------------------------------------------------' */
   [_DEF] = LAYOUT(
     KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                      KC_Y,    KC_U,     KC_I,    KC_O,    KC_P,
-    KC_A,    KC_S,    KC_D,    KC_F,    KC_G,                      KC_H,    KC_J,     KC_K,    KC_L,    SCL_CL,
-    SFT_Z,   KC_X,    KC_C,    KC_V,    KC_B,    KC_GRV,  KC_BSLS, KC_N,    KC_M,     ALT_COMM,CTL_DOT, SFT_SLSH,
-    NAV_ESC, FNC_TAB, KC_LALT, KC_LGUI, KC_SPC,  CTL_TAB, ALT_ENT, KC_BSPC, MO(_SYM), KC_MINS, QUO_DQUO,KC_ENT ),
+    KC_A,    KC_S,    KC_D,    KC_F,    KC_G,                      KC_H,    KC_J,     KC_K,    KC_L,    KC_SCLN,
+    SFT_Z,   KC_X,    KC_C,    KC_V,    KC_B,    KC_GRV,  KC_BSLS, KC_N,    KC_M,     KC_COMM, KC_DOT,  SFT_SLSH,
+    NAV_ESC, FNC_TAB, KC_LALT, KC_LGUI, KC_SPC,  CTL_TAB, ALT_ENT, KC_BSPC, MO(_SYM), KC_RALT, KC_RCTL, KC_ENT ),
 
   /* Symbols and numbers
   ,--------------------------------------------.                  ,--------------------------------------------.
-  |   !    |   @    |   {    |   }    |   `    |                  |   _    |   7    |   8    |   9    |   +    |
+  |   1    |   2    |   3    |   4    |   5    |                  |   6    |   7    |   8    |   9    |   0    |
   |--------+--------+--------+--------+--------|                  |--------+--------+--------+--------+--------|
-  |   #    |   $    |   (    |   )    |   ~    |                  |   -    |   4    |   5    |   6    |   =    |
+  |   !    |   @    |   #    |   $    |   %    |                  |   ^    |   &    |   *    |   (    |   )    |
   |--------+--------+--------+--------+--------+--------.,--------+--------+--------+--------+--------+--------|
-  |   %    |   ^    |   [    |   ]    |   &    |   ~    ||   |    |   *    |   1    |   2    |   3    |   \    |
+  |   [    |   ]    |   {    |   }    |   '    |   ~    ||   |    |   "    |   -    |   +    |   _    |   =    |
   |--------+--------+--------+--------+--------+--------||--------+--------+--------+--------+--------+--------|
-  |        |        |   <    |   >    |        |        ||        |        |  XXXX  |   0    |   .    |        |
+  |        |        |        |        |        |        ||        |        |  XXXX  |        |        |        |
   `-----------------------------------------------------''-----------------------------------------------------' */
   [_SYM] = LAYOUT(
-    KC_EXLM, KC_AT,   KC_LCBR, KC_RCBR, KC_GRV,                    KC_UNDS, KC_7,     KC_8,    KC_9,    KC_PLUS,
-    KC_HASH, KC_DLR,  KC_LPRN, KC_RPRN, KC_TILD,                   KC_MINS, KC_4,     KC_5,    KC_6,    KC_EQL,
-    KC_PERC, KC_CIRC, KC_LBRC, KC_RBRC, KC_AMPR, KC_TILD, KC_PIPE, KC_ASTR, KC_1,     KC_2,    KC_3,    KC_BSLS,
-    _______, _______, KC_LABK, KC_RABK, _______, _______, _______, _______, XXXXXXX,  KC_0,    KC_DOT,  _______),
+    KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                      KC_6,    KC_7,     KC_8,    KC_9,    KC_0,
+    KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC,                   KC_CIRC, KC_AMPR,  KC_ASTR, KC_LPRN, KC_RPRN,
+    KC_LBRC, KC_RBRC, KC_LCBR, KC_RCBR, KC_QUOT, KC_TILD, KC_PIPE, KC_DQUO, KC_MINS,  KC_PLUS, KC_UNDS, KC_EQL,
+    _______, _______, _______, _______, _______, _______, _______, _______, XXXXXXX,  _______, _______, _______),
 
   /* Navigation and system
   ,--------------------------------------------.                  ,--------------------------------------------.
