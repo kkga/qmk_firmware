@@ -1,7 +1,5 @@
-/* vim:colorcolumn=4,13,22,31,40,49,58,67,76,85,94,103,112,121 */
-/*
- * Copyright 2021 Gadzhi KHARKHAROV <me@kkga.me>
- */
+// vim:colorcolumn=4,13,22,31,40,49,58,67,76,85,94,103,112,121
+/* Copyright 2021 Gadzhi KHARKHAROV <me@kkga.me> */
 
 #include QMK_KEYBOARD_H
 
@@ -29,10 +27,10 @@ enum layers {
 #define      LOWER    MO(_LWR)
 #define      ADJUST   MO(_ADJ)
 
-/* #define      UNDO     C(KC_Z) */
-/* #define      CUT      C(KC_X) */
-/* #define      COPY     C(KC_C) */
-/* #define      PASTE    C(KC_V) */
+#define      UNDO     C(KC_Z)
+#define      CUT      C(KC_X)
+#define      COPY     C(KC_C)
+#define      PASTE    C(KC_V)
 #define      REDO     C(S(KC_Z))
 
   /* Keyboard layout
@@ -115,7 +113,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,            KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,
     _______, KC_PSCR, KC_VOLD, KC_MUTE, KC_VOLU, KC_BRIU,          C_LEFT,  XXXXXXX, XXXXXXX, C_RGHT,  C_BSPC,  KC_F12,
     _______, XXXXXXX, KC_MPRV, KC_MPLY, KC_MNXT, KC_BRID,          KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, XXXXXXX, XXXXXXX,
-    _______, KC_UNDO, KC_CUT,  KC_COPY, KC_PASTE,REDO,             KC_HOME, KC_PGDN, KC_PGUP, KC_END,  KC_INS,  KC_DEL,
+    _______, UNDO,    CUT,     COPY,    PASTE,   REDO,             KC_HOME, KC_PGDN, KC_PGUP, KC_END,  KC_INS,  KC_DEL,
                                _______, _______, _______,          _______, _______, _______,
                                         _______, _______,          _______, _______
   ),
