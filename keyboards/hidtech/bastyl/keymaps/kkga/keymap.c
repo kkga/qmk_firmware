@@ -12,6 +12,7 @@ enum layers {
 
 #define      CTL_ESC  CTL_T(KC_ESC)
 #define      GUI_ESC  GUI_T(KC_ESC)
+#define      GUI_DEL  GUI_T(KC_DEL)
 #define      CTL_TAB  CTL_T(KC_TAB)
 #define      GUI_TAB  GUI_T(KC_TAB)
 #define      OSM_SFT  OSM(MOD_LSFT)
@@ -65,7 +66,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    |--------+--------+--------+--------+--------+--------|        |--------+--------+--------+--------+--------+--------|
    | Shift  |   z    |   x    |   c    |   v    |   b    |        |   n    |   m    |   ,    |   .    |   /    |   \    |
    '--------------------------+--------+--------+--------|        |--------+--------+--------+--------------------------'
-                              |RSE-Esc |Sft-Spc |Gui-Tab |        |LWR-Del |Sft-Ent |RSE-Bspc|
+                              |RSE-Esc |Sft-Spc |Gui-Tab |        |Gui-Del |Sft-Ent |RSE-Bspc|
                               '--------+--------+--------|        |--------+--------+--------'
                                        | LOWER  |  Ctl   |        |  Alt   | LOWER  |
                                        '--------+--------'        '--------+--------'                                   */
@@ -74,7 +75,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,             KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_EQL,
     CTL_ESC, KC_A,    KC_S,    KC_D,    KC_F,    KC_G,             KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT,
     KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,             KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_BSLS,
-                               RSE_ESC, SFT_SPC, GUI_TAB,          LWR_DEL, SFT_ENT, RSE_BSP,
+                               RSE_ESC, SFT_SPC, GUI_TAB,          GUI_DEL, SFT_ENT, RSE_BSP,
                                         LOWER,   KC_LCTL,          KC_RALT, LOWER
   ),
 
