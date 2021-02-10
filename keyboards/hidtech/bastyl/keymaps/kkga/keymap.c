@@ -13,19 +13,25 @@ enum layers {
 #define      CTL_ESC  CTL_T(KC_ESC)
 #define      GUI_ESC  GUI_T(KC_ESC)
 #define      CTL_TAB  CTL_T(KC_TAB)
+#define      GUI_TAB  GUI_T(KC_TAB)
 #define      OSM_SFT  OSM(MOD_LSFT)
-#define      RSE_ESC  LT(_RSE, KC_ESC)
-#define      RSE_TAB  LT(_RSE, KC_TAB)
-#define      LWR_ESC  LT(_LWR, KC_ESC)
-#define      LWR_DEL  LT(_LWR, KC_DEL)
-
-#define      C_LEFT   C(KC_LEFT)
-#define      C_RGHT   C(KC_RGHT)
-#define      C_BSPC   C(KC_BSPC)
 
 #define      RAISE    MO(_RSE)
 #define      LOWER    MO(_LWR)
 #define      ADJUST   MO(_ADJ)
+#define      RSE_ESC  LT(_RSE, KC_ESC)
+#define      RSE_TAB  LT(_RSE, KC_TAB)
+#define      RSE_BSP  LT(_RSE, KC_BSPC)
+#define      LWR_ESC  LT(_LWR, KC_ESC)
+#define      LWR_DEL  LT(_LWR, KC_DEL)
+#define      LWR_BSP  LT(_LWR, KC_BSPC)
+
+#define      SFT_SPC  SFT_T(KC_SPC)
+#define      SFT_ENT  SFT_T(KC_ENT)
+
+#define      C_LEFT   C(KC_LEFT)
+#define      C_RGHT   C(KC_RGHT)
+#define      C_BSPC   C(KC_BSPC)
 
 #define      UNDO     C(KC_Z)
 #define      CUT      C(KC_X)
@@ -57,19 +63,19 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    |--------+--------+--------+--------+--------+--------|        |--------+--------+--------+--------+--------+--------|
    |Ctl-Esc |   a    |   s    |   d    |   f    |   g    |        |   h    |   j    |   k    |   l    |   ;    |   '    |
    |--------+--------+--------+--------+--------+--------|        |--------+--------+--------+--------+--------+--------|
-   | Shift  |   z    |   x    |   c    |   v    |   b    |        |   n    |   m    |   ,    |   .    |   /    |    \   |
+   | Shift  |   z    |   x    |   c    |   v    |   b    |        |   n    |   m    |   ,    |   .    |   /    |   \    |
    '--------------------------+--------+--------+--------|        |--------+--------+--------+--------------------------'
-                              |Gui-Esc | Space  |RSE-Tab |        |LWR-Del | Enter  |  Bspc  |
+                              |RSE-Esc |Sft-Spc |Gui-Tab |        |LWR-Del |Sft-Ent |RSE-Bspc|
                               '--------+--------+--------|        |--------+--------+--------'
-                                       |OSM_Sft |  Ctl   |        |  Alt   |  Alt   |
+                                       | LOWER  |  Ctl   |        |  Alt   | LOWER  |
                                        '--------+--------'        '--------+--------'                                   */
   [_BSE] = LAYOUT(
     KC_GRV,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,             KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_MINS,
     KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,             KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_EQL,
     CTL_ESC, KC_A,    KC_S,    KC_D,    KC_F,    KC_G,             KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT,
     KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,             KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_BSLS,
-                               GUI_ESC, KC_SPC,  RSE_TAB,          LWR_DEL, KC_ENT,  KC_BSPC,
-                                        OSM_SFT, KC_LCTL,          KC_RALT, KC_RALT
+                               RSE_ESC, SFT_SPC, GUI_TAB,          LWR_DEL, SFT_ENT, RSE_BSP,
+                                        LOWER,   KC_LCTL,          KC_RALT, LOWER
   ),
 
   /* LOWER: Symbols + Numpad
@@ -82,7 +88,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    |--------+--------+--------+--------+--------+--------|        |--------+--------+--------+--------+--------+--------|
    |        |   %    |   ^    |   [    |   ]    |   &    |        |   +    |   1    |   2    |   3    |   *    |        |
    '--------------------------+--------+--------+--------|        |--------+--------+--------+--------------------------'
-                              |        |        |  ADJ   |        |        |        |        |
+                              |        |        |        |        |        |        |        |
                               '--------+--------+--------|        |--------+--------+--------'
                                        |        |        |        |        |        |
                                        '--------+--------'        '--------+--------'                                   */
@@ -91,13 +97,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______, KC_EXLM, KC_AT,   KC_LCBR, KC_RCBR, KC_GRV, 	       KC_MINS, KC_7,    KC_8,    KC_9,    KC_0,    _______,
     _______, KC_HASH, KC_DLR,  KC_LPRN, KC_RPRN, KC_TILD,          KC_UNDS, KC_4,    KC_5,    KC_6,    KC_EQL,  _______,
     _______, KC_PERC, KC_CIRC, KC_LBRC, KC_RBRC, KC_AMPR,          KC_PLUS, KC_1,    KC_2,    KC_3,    KC_ASTR, _______,
-                               _______, _______, ADJUST,           _______, _______, _______,
+                               _______, _______, _______,           _______, _______, _______,
                                         _______, _______,          _______, _______
   ),
 
   /* RAISE: Navigation and system
    ,-----------------------------------------------------.        ,-----------------------------------------------------.
-   |        |   F1   |   F2   |   F3   |   F4   |   F5   |        |   F6   |   F7   |   F8   |   F9   |  F10   |  F11   |
+   | RESET  |   F1   |   F2   |   F3   |   F4   |   F5   |        |   F6   |   F7   |   F8   |   F9   |  F10   |  F11   |
    |--------+--------+--------+--------+--------+--------|        |--------+--------+--------+--------+--------+--------|
    |        | PrtScr |  Vol-  |  Mute  |  Vol+  |  Bri+  |        | Ctl ←  |  XXXX  |  XXXX  | Ctl →  |Ctl Bsp |  F12   |
    |--------+--------+--------+--------+--------+--------|        |--------+--------+--------+--------+--------+--------|
@@ -110,33 +116,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                        |        |        |        |        |        |
                                        '--------+--------'        '--------+--------'                                   */
   [_RSE] = LAYOUT(
-    _______, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,            KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,
+    RESET,   KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,            KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,
     _______, KC_PSCR, KC_VOLD, KC_MUTE, KC_VOLU, KC_BRIU,          C_LEFT,  XXXXXXX, XXXXXXX, C_RGHT,  C_BSPC,  KC_F12,
     _______, XXXXXXX, KC_MPRV, KC_MPLY, KC_MNXT, KC_BRID,          KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, XXXXXXX, XXXXXXX,
     _______, UNDO,    CUT,     COPY,    PASTE,   REDO,             KC_HOME, KC_PGDN, KC_PGUP, KC_END,  KC_INS,  KC_DEL,
-                               _______, _______, _______,          _______, _______, _______,
-                                        _______, _______,          _______, _______
-  ),
-
-  /* ADJUST: Keyboard Settings
-   ,-----------------------------------------------------.        ,-----------------------------------------------------.
-   |        |        |        |        |        |        |        |        |        |        |        |        |        |
-   |--------+--------+--------+--------+--------+--------|        |--------+--------+--------+--------+--------+--------|
-   |        |        |        |        |        |        |        |        |        |        |        |        |        |
-   |--------+--------+--------+--------+--------+--------|        |--------+--------+--------+--------+--------+--------|
-   | RESET  |        |        |        |        |        |        |        |        |        |        |        |        |
-   |--------+--------+--------+--------+--------+--------|        |--------+--------+--------+--------+--------+--------|
-   |        |        |        |        |        |        |        |        |        |        |        |        |        |
-   '--------------------------+--------+--------+--------|        |--------+--------+--------+--------------------------'
-                              |        |        |        |        |        |        |        |
-                              '--------+--------+--------|        |--------+--------+--------'
-                                       |        |        |        |        |        |
-                                       '--------+--------'        '--------+--------'                                   */
-  [_ADJ] = LAYOUT(
-    _______, _______, _______, _______, _______, _______,          _______, _______, _______, _______, _______, _______,
-    _______, _______, _______, _______, _______, _______,          _______, _______, _______, _______, _______, _______,
-    RESET,   _______, _______, _______, _______, _______,          _______, _______, _______, _______, _______, _______,
-    _______, _______, _______, _______, _______, _______,          _______, _______, _______, _______, _______, _______,
                                _______, _______, _______,          _______, _______, _______,
                                         _______, _______,          _______, _______
   ),
