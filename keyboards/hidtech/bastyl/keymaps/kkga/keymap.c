@@ -6,8 +6,7 @@
 enum layers {
   _BSE,
   _LWR,
-  _RSE,
-  _ADJ
+  _RSE
 };
 
 #define      CTL_ESC  CTL_T(KC_ESC)
@@ -20,6 +19,7 @@ enum layers {
 #define      RAISE    MO(_RSE)
 #define      LOWER    MO(_LWR)
 #define      ADJUST   MO(_ADJ)
+#define      OSL_LWR  OSL(_LWR)
 #define      RSE_ESC  LT(_RSE, KC_ESC)
 #define      RSE_TAB  LT(_RSE, KC_TAB)
 #define      RSE_BSP  LT(_RSE, KC_BSPC)
@@ -66,7 +66,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    |--------+--------+--------+--------+--------+--------|        |--------+--------+--------+--------+--------+--------|
    | Shift  |   z    |   x    |   c    |   v    |   b    |        |   n    |   m    |   ,    |   .    |   /    |   \    |
    '--------------------------+--------+--------+--------|        |--------+--------+--------+--------------------------'
-                              |RSE-Esc |  Spc   |Gui-Tab |        |  Bspc  |  Ent   | LOWER  |
+                              |RSE-Esc |  Spc   |Gui-Tab |        | Enter  |  Bspc  |OSL_LWR |
                               '--------+--------+--------|        |--------+--------+--------'
                                        |OSM_Sft |  Ctl   |        |  Alt   |OSM_Sft |
                                        '--------+--------'        '--------+--------'                                   */
@@ -75,7 +75,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,             KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_EQL,
     CTL_ESC, KC_A,    KC_S,    KC_D,    KC_F,    KC_G,             KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT,
     KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,             KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_BSLS,
-                               RSE_ESC, KC_SPC,  GUI_TAB,          KC_BSPC, SFT_ENT, LOWER,
+                               RSE_ESC, KC_SPC,  GUI_TAB,          KC_ENT,  KC_BSPC, OSL_LWR,
                                         OSM_SFT, KC_LCTL,          KC_RALT, OSM_SFT
   ),
 
@@ -98,7 +98,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______, KC_EXLM, KC_AT,   KC_LCBR, KC_RCBR, KC_GRV, 	       KC_MINS, KC_7,    KC_8,    KC_9,    KC_0,    _______,
     _______, KC_HASH, KC_DLR,  KC_LPRN, KC_RPRN, KC_TILD,          KC_UNDS, KC_4,    KC_5,    KC_6,    KC_EQL,  _______,
     _______, KC_PERC, KC_CIRC, KC_LBRC, KC_RBRC, KC_AMPR,          KC_PLUS, KC_1,    KC_2,    KC_3,    KC_ASTR, _______,
-                               _______, _______, _______,           _______, _______, _______,
+                               _______, _______, _______,          _______, _______, _______,
                                         _______, _______,          _______, _______
   ),
 
