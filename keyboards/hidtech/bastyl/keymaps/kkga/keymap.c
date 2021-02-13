@@ -86,7 +86,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 	Considering a more traditional layout here, since I'm getting lost in thumb modifiers and need an Alt on the left...
 	Also under-homerow-mods are not working for me.
-	Also I like mirrored layer toggles on both sides.
    ,-----------------------------------------------------.        ,-----------------------------------------------------.
    |   `    |   1    |   2    |   3    |   4    |   5    |        |   6    |   7    |   8    |   9    |   0    |  Bspc  |
    |--------+--------+--------+--------+--------+--------|        |--------+--------+--------+--------+--------+--------|
@@ -94,19 +93,19 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    |--------+--------+--------+--------+--------+--------|        |--------+--------+--------+--------+--------+--------|
    |Ctl-Esc |   a    |   s    |   d    |   f    |   g    |        |   h    |   j    |   k    |   l    |   ;    |   '    |
    |--------+--------+--------+--------+--------+--------|        |--------+--------+--------+--------+--------+--------|
-   | Shift  |   z    |   x    |   c    |   v    |   b    |        |   n    |   m    |   ,    |   .    |   /    | Shift  |
+   |OSM_Sft |   z    |   x    |   c    |   v    |   b    |        |   n    |   m    |   ,    |   .    |   /    |OSM_Sft |
    '--------------------------+--------+--------+--------|        |--------+--------+--------+--------------------------'
-                              | RAISE  |  Spc   | LOWER  |        | LOWER  | Enter  | RAISE  |
+                              | RAISE  |  Spc   |  Ctl   |        |  Bspc  | Enter  | LOWER  |
                               '--------+--------+--------|        |--------+--------+--------'
                                        |  Gui   |  Alt   |        |  Alt   |  Gui   |
                                        '--------+--------'        '--------+--------'                                    */
   [_BSE] = LAYOUT(
-    KC_GRV,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,             KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_MINS,
-    KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,             KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_EQL,
+    KC_GRV,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,             KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_BSPC,
+    KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,             KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSLS,
     CTL_ESC, KC_A,    KC_S,    KC_D,    KC_F,    KC_G,             KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT,
-    KC_LSFT, CTL_Z,   ALT_X,   GUI_C,   KC_V,    KC_B,             KC_N,    KC_M,    GUI_COMM,ALT_DOT, CTL_SLSH,SFT_BSLS,
-                               RSE_ESC, KC_SPC,  OSM_SFT,          KC_ENT,  KC_BSPC, OSL_LWR,
-                                        KC_LGUI, CTL_TAB,          ALT_TAB, KC_RGUI
+    OSM_SFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,             KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, OSM_SFT,
+                               RAISE,   KC_SPC,  KC_LCTL,          KC_BSPC, KC_ENT,  OSL_LWR,
+                                        KC_LGUI, ALT_TAB,          ALT_TAB, KC_RGUI
   ),
 
   /* LOWER: Symbols + Numpad
