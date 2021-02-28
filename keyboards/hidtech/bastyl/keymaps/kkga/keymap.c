@@ -80,17 +80,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    |--------+--------+--------+--------+--------+--------|        |--------+--------+--------+--------+--------+--------|
    |OSM_Sft |   z    |   x    |   c    |   v    |   b    |        |   n    |   m    |   ,    |   .    |   /    |OSM_Sft |
    '--------------------------+--------+--------+--------|        |--------+--------+--------+--------------------------'
-                              |Gui-Esc |Ctl-Spc |Alt-Tab |        |  Ent   |  Spc   |  Bspc  |
+                              |Gui-Esc |  Spc   |Alt-Tab |        |  Alt   |  Spc   |  Bspc  |
                               '--------+--------+--------|        |--------+--------+--------'
-                                       | RAISE  | LOWER  |        | LOWER  | RAISE  |
+                                       | RAISE  |  Ctl   |        |  Ctl   | RAISE  |
                                        '--------+--------'        '--------+--------'                                    */
   [_BSE] = LAYOUT(
     KC_GRV,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,             KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_BSPC,
     KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,             KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSLS,
     CTL_ESC, KC_A,    KC_S,    KC_D,    KC_F,    KC_G,             KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT,
     OSM_SFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,             KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, OSM_SFT,
-                               GUI_ESC, CTL_SPC, ALT_TAB,          KC_ENT,  KC_SPC,  KC_BSPC,
-                                        RAISE,   OSL_LWR,          OSL_LWR, RAISE
+                               GUI_ESC, KC_SPC,  ALT_TAB,          KC_LALT, KC_ENT,  KC_BSPC,
+                                        RAISE,   KC_LCTL,          KC_RCTL, OSL_LWR
   ),
 
   /* LOWER: Symbols + Numpad
@@ -118,32 +118,32 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   /* RAISE: Navigation on both halves
    ,-----------------------------------------------------.        ,-----------------------------------------------------.
-   |        |   F1   |   F2   |   F3   |   F4   |   F5   |        |   F6   |   F7   |   F8   |   F9   |  F10   |  F11   |
+   |        |   F1   |   F2   |   F3   |   F4   |   F5   |        |   F6   |   F7   |   F8   |   F9   |  F10   |        |
    |--------+--------+--------+--------+--------+--------|        |--------+--------+--------+--------+--------+--------|
-   |        |  XXXX  |  XXXX  |   ↑    |  XXXX  |  XXXX  |        | Ctl ←  | Ctl ↓  | Ctl ↑  | Ctl →  |Ctl Bsp |  F12   |
+   |        |  F11   |  XXXX  |   ↑    |  XXXX  |  XXXX  |        | Ctl ←  | Ctl ↓  | Ctl ↑  | Ctl →  |Ctl Bsp |        |
    |--------+--------+--------+--------+--------+--------|        |--------+--------+--------+--------+--------+--------|
-   |        |  XXXX  |   ←    |   ↓    |   →    |  XXXX  |        |   ←    |   ↓    |   ↑    |   →    |  XXXX  |  XXXX  |
+   |        |  F12   |   ←    |   ↓    |   →    |  XXXX  |        |   ←    |   ↓    |   ↑    |   →    |  XXXX  |        |
    |--------+--------+--------+--------+--------+--------|        |--------+--------+--------+--------+--------+--------|
    |        |  Ctl   |  Alt   |  Gui   |  XXXX  |  XXXX  |        |  Home  |  PgDn  |  PgUp  |  End   |  XXXX  |        |
    '--------------------------+--------+--------+--------|        |--------+--------+--------+--------------------------'
                               |        |        |        |        |        |        |  Del   |
                               '--------+--------+--------|        |--------+--------+--------'
-                                       |        | ADJUST |        | ADJUST |        |
+                                       | ADJUST |        |        |        | ADJUST |
                                        '--------+--------'        '--------+--------'                                   */
   [_RSE] = LAYOUT(
-    _______, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,            KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,
-    _______, XXXXXXX, XXXXXXX, KC_UP,   XXXXXXX, XXXXXXX,          C_LEFT,  C_DOWN,  C_UP,    C_RGHT,  C_BSPC,  KC_F12,
-    _______, XXXXXXX, KC_LEFT, KC_DOWN, KC_RGHT, XXXXXXX,          KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, XXXXXXX, XXXXXXX,
+    _______, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,            KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  _______,
+    _______, KC_F11,  XXXXXXX, KC_UP,   XXXXXXX, XXXXXXX,          C_LEFT,  C_DOWN,  C_UP,    C_RGHT,  C_BSPC,  _______,
+    _______, KC_F12,  KC_LEFT, KC_DOWN, KC_RGHT, XXXXXXX,          KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, XXXXXXX, _______,
     _______, KC_LCTL, KC_LALT, KC_LGUI, XXXXXXX, XXXXXXX,          KC_HOME, KC_PGDN, KC_PGUP, KC_END,  XXXXXXX, _______,
                                _______, _______, _______,          _______, _______, KC_DEL,
-                                        _______, ADJUST,           ADJUST,  _______
+                                        ADJUST,  _______,          _______, ADJUST 
   ),
 
   /* ADJUST: System
    ,-----------------------------------------------------.        ,-----------------------------------------------------.
-   | RESET  |   F1   |   F2   |   F3   |   F4   |   F5   |        |   F6   |   F7   |   F8   |   F9   |  F10   |  F11   |
+   | RESET  |  XXXX  |  XXXX  |  XXXX  |  XXXX  |  XXXX  |        |  XXXX  |  XXXX  |  XXXX  |  XXXX  |  XXXX  |  XXXX  |
    |--------+--------+--------+--------+--------+--------|        |--------+--------+--------+--------+--------+--------|
-   |        | PrtScr |  Vol-  |  Mute  |  Vol+  |  Bri+  |        |  XXXX  |  XXXX  |  XXXX  |  XXXX  |  XXXX  |  F12   |
+   |        | PrtScr |  Vol-  |  Mute  |  Vol+  |  Bri+  |        |  XXXX  |  XXXX  |  XXXX  |  XXXX  |  XXXX  |  XXXX  |
    |--------+--------+--------+--------+--------+--------|        |--------+--------+--------+--------+--------+--------|
    |        |  XXXX  |  Prev  |  Play  |  Next  |  Bri-  |        |  XXXX  |  XXXX  |  XXXX  |  XXXX  |  XXXX  |  XXXX  |
    |--------+--------+--------+--------+--------+--------|        |--------+--------+--------+--------+--------+--------|
@@ -154,8 +154,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                        |        |        |        |        |        |
                                        '--------+--------'        '--------+--------'                                   */
   [_ADJ] = LAYOUT(
-    RESET,   KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,            KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,
-    _______, KC_PSCR, KC_VOLD, KC_MUTE, KC_VOLU, KC_BRIU,          XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_F12,
+    RESET,   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,          XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+    _______, KC_PSCR, KC_VOLD, KC_MUTE, KC_VOLU, KC_BRIU,          XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
     _______, XXXXXXX, KC_MPRV, KC_MPLY, KC_MNXT, KC_BRID,          XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
     _______, UNDO,    CUT,     COPY,    PASTE,   REDO,             XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
                                _______, _______, _______,          _______, _______, _______,
