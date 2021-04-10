@@ -135,6 +135,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______, KC_F12,  KC_MPRV, KC_MPLY, KC_MNXT, KC_BRID,          KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, KC_INS,  _______,
     _______, UNDO,    CUT,     COPY,    PASTE,   REDO,             KC_HOME, KC_PGDN, KC_PGUP, KC_END,  KC_DEL,  _______,
                                _______, _______, _______,          _______, _______, _______,
-                                        _______, _______,          _______, _______ 
+                                        _______, _______,          _______, _______
   ),
 };
