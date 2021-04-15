@@ -1,5 +1,4 @@
-// vim:colorcolumn=4,13,22,31,40,49,58,67,76,85,94,103,112,121
-/* Copyright 2021 Gadzhi KHARKHAROV <me@kkga.me> */
+/* copyright 2021 gadzhi kharkharov <me@kkga.me> */
 
 #include QMK_KEYBOARD_H
 
@@ -71,17 +70,17 @@ enum layers {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   /* BASE: Qwerty
    ,-----------------------------------------------------.        ,-----------------------------------------------------.
-   |   `    |   1    |   2    |   3    |   4    |   5    |        |   6    |   7    |   8    |   9    |   0    |  Bspc  |
+   |   `    |   1    |   2    |   3    |   4    |   5    |        |   6    |   7    |   8    |   9    |   0    |  bspc  |
    |--------+--------+--------+--------+--------+--------|        |--------+--------+--------+--------+--------+--------|
-   |  Tab   |   q    |   w    |   e    |   r    |   t    |        |   y    |   u    |   i    |   o    |   p    |   \    |
+   |  tab   |   q    |   w    |   e    |   r    |   t    |        |   y    |   u    |   i    |   o    |   p    |   \    |
    |--------+--------+--------+--------+--------+--------|        |--------+--------+--------+--------+--------+--------|
-   |Ctl-Esc |   a    |   s    |   d    |   f    |   g    |        |   h    |   j    |   k    |   l    |   ;    |   '    |
+   |ctl-esc |   a    |   s    |   d    |   f    |   g    |        |   h    |   j    |   k    |   l    |   ;    |   '    |
    |--------+--------+--------+--------+--------+--------|        |--------+--------+--------+--------+--------+--------|
-   |OSM_Sft |   z    |   x    |   c    |   v    |   b    |        |   n    |   m    |   ,    |   .    |   /    |OSM_Sft |
+   |osm_sft |   z    |   x    |   c    |   v    |   b    |        |   n    |   m    |   ,    |   .    |   /    |osm_sft |
    '--------------------------+--------+--------+--------|        |--------+--------+--------+--------------------------'
-                              |Gui/Esc |  Spc   |Alt/Tab |        |  Alt   |  Ent   |  Bspc  |
+                              |gui/esc |  spc   |alt/tab |        |  alt   |  ent   |  bspc  |
                               '--------+--------+--------|        |--------+--------+--------'
-                                       | LOWER  |  Ctl   |        | RAISE  | LOWER  |
+                                       | lower  | raise  |        | raise  | lower  |
                                        '--------+--------'        '--------+--------'                                    */
   [_BSE] = LAYOUT(
     KC_GRV,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,             KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_BSPC,
@@ -89,18 +88,18 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     CTL_ESC, KC_A,    KC_S,    KC_D,    KC_F,    KC_G,             KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT,
     OSM_SFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,             KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, OSM_SFT,
                                GUI_ESC, KC_SPC,  ALT_TAB,          KC_LALT, KC_ENT,  KC_BSPC,
-                                        OSL_LWR, KC_LCTL,          RAISE,   OSL_LWR
+                                        OSL_LWR, RAISE,            RAISE,   OSL_LWR
   ),
 
   /* LOWER: Symbols + Arrows
    ,-----------------------------------------------------.        ,-----------------------------------------------------.
    |   ~    |   !    |   @    |   #    |   $    |   %    |        |   ^    |   &    |   *    |   (    |   )    |        |
    |--------+--------+--------+--------+--------+--------|        |--------+--------+--------+--------+--------+--------|
-   |        |   {    |  PgUp  |   ↑    |  PgDn  |   }    |        |        |   -    |   +    |   _    |   =    |   |    |
+   |        |   {    |  pgup  |   ↑    |  pgdn  |   }    |        |   ~    |   -    |   +    |   _    |   =    |   |    |
    |--------+--------+--------+--------+--------+--------|        |--------+--------+--------+--------+--------+--------|
    |        |   (    |   ←    |   ↓    |   →    |   )    |        |   ←    |   ↓    |   ↑    |   →    |   :    |   "    |
    |--------+--------+--------+--------+--------+--------|        |--------+--------+--------+--------+--------+--------|
-   |        |   [    |  Home  |        |  End   |   ]    |        |        |        |   <    |   >    |   ?    |        |
+   |        |   [    |  home  |        |  end   |   ]    |        |        |        |   <    |   >    |   ?    |        |
    '--------------------------+--------+--------+--------|        |--------+--------+--------+--------------------------'
                               |        |        |        |        |        |        |        |
                               '--------+--------+--------|        |--------+--------+--------'
@@ -108,7 +107,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                        '--------+--------'        '--------+--------'                                   */
   [_LWR] = LAYOUT(
     KC_TILD, KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC,          KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, _______,
-    _______, KC_LCBR, KC_PGUP, KC_UP,   KC_PGDN, KC_RCBR,	       _______, KC_MINS, KC_PLUS, KC_UNDS, KC_EQL,  KC_PIPE,
+    _______, KC_LCBR, KC_PGUP, KC_UP,   KC_PGDN, KC_RCBR,	       KC_TILD, KC_MINS, KC_PLUS, KC_UNDS, KC_EQL,  KC_PIPE,
     _______, KC_LPRN, KC_LEFT, KC_DOWN, KC_RGHT, KC_RPRN,          KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, KC_COLN, KC_DQUO,
     _______, KC_LBRC, KC_HOME, _______, KC_END,  KC_RBRC,          _______, _______, KC_LABK, KC_RABK, KC_QUES, _______,
                                _______, _______, _______,          _______, _______, _______,
@@ -117,13 +116,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   /* RAISE: System and extra navigation
    ,-----------------------------------------------------.        ,-----------------------------------------------------.
-   | RESET  |   F1   |   F2   |   F3   |   F4   |   F5   |        |   F6   |   F7   |   F8   |   F9   |  F10   |        |
+   | reset  |   f1   |   f2   |   f3   |   f4   |   f5   |        |   f6   |   f7   |   f8   |   f9   |  f10   |        |
    |--------+--------+--------+--------+--------+--------|        |--------+--------+--------+--------+--------+--------|
-   |        |  F11   |  Vol-  |  Mute  |  Vol+  |  Bri+  |        |  Ctl←  |  Ctl↓  |  Ctl↑  |  Ctl→  |Ctl Bsp |        |
+   |        |  f11   |  prev  |  play  |  next  |  bri+  |        |  ctl←  |  ctl↓  |  ctl↑  |  ctl→  |ctl bsp |        |
    |--------+--------+--------+--------+--------+--------|        |--------+--------+--------+--------+--------+--------|
-   |        |  F12   |  Prev  |  Play  |  Next  |  Bri-  |        |   ←    |   ↓    |   ↑    |   →    |  Ins   |        |
+   |        |  f12   |  vol-  |  mute  |  vol+  |  bri-  |        |   ←    |   ↓    |   ↑    |   →    |  ins   |        |
    |--------+--------+--------+--------+--------+--------|        |--------+--------+--------+--------+--------+--------|
-   |        |  Undo  |  Cut   |  Copy  | Paste  |  Redo  |        |  Home  |  PgDn  |  PgUp  |  End   |  Del   |        |
+   |        |  undo  |  cut   |  copy  | paste  |  redo  |        |  home  |  pgdn  |  pgup  |  end   |  del   |        |
    '--------------------------+--------+--------+--------|        |--------+--------+--------+--------------------------'
                               |        |        |        |        |        |        |        |
                               '--------+--------+--------|        |--------+--------+--------'
@@ -131,8 +130,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                        '--------+--------'        '--------+--------'                                   */
   [_RSE] = LAYOUT(
     RESET,   KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,            KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  _______,
-    _______, KC_F11,  KC_VOLD, KC_MUTE, KC_VOLU, KC_BRIU,          C_LEFT,  C_DOWN,  C_UP,    C_RGHT,  C_BSPC,  _______,
-    _______, KC_F12,  KC_MPRV, KC_MPLY, KC_MNXT, KC_BRID,          KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, KC_INS,  _______,
+    _______, KC_F11,  KC_MPRV, KC_MPLY, KC_MNXT, KC_BRIU,          C_LEFT,  C_DOWN,  C_UP,    C_RGHT,  C_BSPC,  _______,
+    _______, KC_F12,  KC_VOLD, KC_MUTE, KC_VOLU, KC_BRID,          KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, KC_INS,  _______,
     _______, UNDO,    CUT,     COPY,    PASTE,   REDO,             KC_HOME, KC_PGDN, KC_PGUP, KC_END,  KC_DEL,  _______,
                                _______, _______, _______,          _______, _______, _______,
                                         _______, _______,          _______, _______
