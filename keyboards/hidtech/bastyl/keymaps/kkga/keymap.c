@@ -78,7 +78,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    |--------+--------+--------+--------+--------+--------|        |--------+--------+--------+--------+--------+--------|
    |osm_sft |   z    |   x    |   c    |   v    |   b    |        |   n    |   m    |   ,    |   .    |   /    |osm_sft |
    '--------------------------+--------+--------+--------|        |--------+--------+--------+--------------------------'
-                              |gui/esc |  spc   |alt/tab |        |  alt   |  ent   |  bspc  |
+                              |gui/esc |  spc   |alt/tab |        |  ctl   |  ent   |  bspc  |
                               '--------+--------+--------|        |--------+--------+--------'
                                        | lower  | raise  |        | raise  | lower  |
                                        '--------+--------'        '--------+--------'                                    */
@@ -87,11 +87,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,             KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSLS,
     CTL_ESC, KC_A,    KC_S,    KC_D,    KC_F,    KC_G,             KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT,
     OSM_SFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,             KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, OSM_SFT,
-                               GUI_ESC, KC_SPC,  ALT_TAB,          KC_LALT, KC_ENT,  KC_BSPC,
+                               GUI_ESC, KC_SPC,  ALT_TAB,          KC_RCTL, KC_ENT,  KC_BSPC,
                                         OSL_LWR, RAISE,            RAISE,   OSL_LWR
   ),
 
-  /* LOWER: Symbols + Arrows
+  /* LOWER
    ,-----------------------------------------------------.        ,-----------------------------------------------------.
    |   ~    |   !    |   @    |   #    |   $    |   %    |        |   ^    |   &    |   *    |   (    |   )    |        |
    |--------+--------+--------+--------+--------+--------|        |--------+--------+--------+--------+--------+--------|
@@ -114,25 +114,25 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                         _______, _______,          _______, _______
   ),
 
-  /* RAISE: System and extra navigation
+  /* RAISE
    ,-----------------------------------------------------.        ,-----------------------------------------------------.
-   | reset  |   f1   |   f2   |   f3   |   f4   |   f5   |        |   f6   |   f7   |   f8   |   f9   |  f10   |        |
+   | reset  |   f1   |   f2   |   f3   |   f4   |   f5   |        |   f6   |   f7   |   f8   |   f9   |  f10   |  del   |
    |--------+--------+--------+--------+--------+--------|        |--------+--------+--------+--------+--------+--------|
-   |        |  f11   |  prev  |  play  |  next  |  bri+  |        |  ctl←  |  ctl↓  |  ctl↑  |  ctl→  |ctl bsp |        |
+   |        |   !    |   @    |   #    |   $    |   %    |        |   ^    |   &    |   *    |   (    |   )    |  ins   |
    |--------+--------+--------+--------+--------+--------|        |--------+--------+--------+--------+--------+--------|
-   |        |  f12   |  vol-  |  mute  |  vol+  |  bri-  |        |   ←    |   ↓    |   ↑    |   →    |  ins   |        |
+   |        |   1    |   2    |   3    |   4    |   5    |        |   6    |   7    |   8    |   9    |   0    |        |
    |--------+--------+--------+--------+--------+--------|        |--------+--------+--------+--------+--------+--------|
-   |        |  undo  |  cut   |  copy  | paste  |  redo  |        |  home  |  pgdn  |  pgup  |  end   |  del   |        |
-   '--------------------------+--------+--------+--------|        |--------+--------+--------+--------------------------'
+   |        |  bri-  |  vol-  |  mute  |  vol+  |  bri+  |        |        |  prev  |  play  |  next  |        |        |
+   '--------------------------+--------+--------+--------|        |-----------------+--------+--------+--------+--------'
                               |        |        |        |        |        |        |        |
                               '--------+--------+--------|        |--------+--------+--------'
                                        |        |        |        |        |        |
                                        '--------+--------'        '--------+--------'                                   */
   [_RSE] = LAYOUT(
-    RESET,   KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,            KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  _______,
-    _______, KC_F11,  KC_MPRV, KC_MPLY, KC_MNXT, KC_BRIU,          C_LEFT,  C_DOWN,  C_UP,    C_RGHT,  C_BSPC,  _______,
-    _______, KC_F12,  KC_VOLD, KC_MUTE, KC_VOLU, KC_BRID,          KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, KC_INS,  _______,
-    _______, UNDO,    CUT,     COPY,    PASTE,   REDO,             KC_HOME, KC_PGDN, KC_PGUP, KC_END,  KC_DEL,  _______,
+    RESET,   KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,            KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_INS,
+    _______, KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC,          KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_DEL,
+    _______, KC_1,    KC_2,    KC_3,    KC_4,    KC_5,             KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    _______,
+    _______, KC_BRID, KC_VOLD, KC_MUTE, KC_VOLU, KC_BRIU,          _______, KC_MPRV, KC_MPLY, KC_MNXT, _______, _______,
                                _______, _______, _______,          _______, _______, _______,
                                         _______, _______,          _______, _______
   ),
