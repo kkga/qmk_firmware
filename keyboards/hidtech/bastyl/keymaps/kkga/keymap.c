@@ -5,7 +5,8 @@
 enum layers {
   _BSE,
   _LWR,
-  _RSE
+  _RSE,
+  _GAM,
 };
 
 #define      CTL_ESC  CTL_T(KC_ESC)
@@ -30,6 +31,7 @@ enum layers {
 #define      LOWER    MO(_LWR)
 #define      ADJUST   MO(_ADJ)
 #define      OSL_LWR  OSL(_LWR)
+#define      LWR_F    LT(_LWR, KC_F)
 #define      RSE_ESC  LT(_RSE, KC_ESC)
 #define      RSE_TAB  LT(_RSE, KC_TAB)
 #define      RSE_BSP  LT(_RSE, KC_BSPC)
@@ -74,7 +76,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    |--------+--------+--------+--------+--------+--------|        |--------+--------+--------+--------+--------+--------|
    |  tab   |   q    |   w    |   e    |   r    |   t    |        |   y    |   u    |   i    |   o    |   p    |   \    |
    |--------+--------+--------+--------+--------+--------|        |--------+--------+--------+--------+--------+--------|
-   |ctl-esc |   a    |   s    |   d    |   f    |   g    |        |   h    |   j    |   k    |   l    |   ;    |   '    |
+   |ctl-esc |   a    |   s    |   d    | lwr-f  |   g    |        |   h    |   j    |   k    |   l    |   ;    |   '    |
    |--------+--------+--------+--------+--------+--------|        |--------+--------+--------+--------+--------+--------|
    |osm_sft |   z    |   x    |   c    |   v    |   b    |        |   n    |   m    |   ,    |   .    |   /    |osm_sft |
    '--------------------------+--------+--------+--------|        |--------+--------+--------+--------------------------'
@@ -85,7 +87,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_BSE] = LAYOUT(
     KC_GRV,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,             KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_BSPC,
     KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,             KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSLS,
-    CTL_ESC, KC_A,    KC_S,    KC_D,    KC_F,    KC_G,             KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT,
+    CTL_ESC, KC_A,    KC_S,    KC_D,    LWR_F,   KC_G,             KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT,
     OSM_SFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,             KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, OSM_SFT,
                                GUI_ESC, KC_SPC,  ALT_TAB,          KC_RCTL, KC_ENT,  KC_BSPC,
                                         OSL_LWR, RAISE,            RAISE,   OSL_LWR
@@ -135,5 +137,28 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______, KC_BRID, KC_VOLD, KC_MUTE, KC_VOLU, KC_BRIU,          _______, KC_MPRV, KC_MPLY, KC_MNXT, _______, _______,
                                _______, _______, _______,          _______, _______, _______,
                                         _______, _______,          _______, _______
+  ),
+
+  /* GAME
+   ,-----------------------------------------------------.        ,-----------------------------------------------------.
+   |        |        |        |        |        |        |        |        |        |        |        |        |        |
+   |--------+--------+--------+--------+--------+--------|        |--------+--------+--------+--------+--------+--------|
+   |        |   t    |   q    |   w    |   e    |   r    |        |        |        |        |        |        |        |
+   |--------+--------+--------+--------+--------+--------|        |--------+--------+--------+--------+--------+--------|
+   |        |   g    |   a    |   s    |   d    |   f    |        |        |        |        |        |        |        |
+   |--------+--------+--------+--------+--------+--------|        |--------+--------+--------+--------+--------+--------|
+   |        |   b    |   z    |   x    |   c    |   v    |        |        |        |        |        |        |        |
+   '--------------------------+--------+--------+--------|        |--------+--------+--------+--------------------------'
+                              |        |        |        |        |        |        |        |
+                              '--------+--------+--------|        |--------+--------+--------'
+                                       |        |        |        |        |        |
+                                       '--------+--------'        '--------+--------'                                   */
+  [_GAM] = LAYOUT(
+    KC_GRV,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,             KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_BSPC,
+    KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,             KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSLS,
+    CTL_ESC, KC_A,    KC_S,    KC_D,    LWR_F,   KC_G,             KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT,
+    OSM_SFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,             KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, OSM_SFT,
+                               GUI_ESC, KC_SPC,  ALT_TAB,          KC_RCTL, KC_ENT,  KC_BSPC,
+                                        OSL_LWR, RAISE,            RAISE,   OSL_LWR
   ),
 };
