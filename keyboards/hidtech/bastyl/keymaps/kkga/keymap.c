@@ -33,6 +33,7 @@ enum layers {
 #define      ADJUST   MO(_ADJ)
 #define      OSL_LWR  OSL(_LWR)
 #define      LWR_F    LT(_LWR, KC_F)
+#define      RSE_Z    LT(_RSE, KC_Z)
 #define      RSE_ESC  LT(_RSE, KC_ESC)
 #define      RSE_TAB  LT(_RSE, KC_TAB)
 #define      RSE_BSP  LT(_RSE, KC_BSPC)
@@ -73,7 +74,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    |--------+--------+--------+--------+--------+--------|        |--------+--------+--------+--------+--------+--------|
    |  esc?  |   a    |   s    |   d    | lwr-f  |   g    |        |   h    |   j    |   k    |   l    |   ;    |   '    |
    |--------+--------+--------+--------+--------+--------|        |--------+--------+--------+--------+--------+--------|
-   |osm_sft |   z    |   x    |   c    |   v    |   b    |        |   n    |   m    |   ,    |   .    |   /    |osm_sft?|
+   |osm_sft | rse-z  |   x    |   c    |   v    |   b    |        |   n    |   m    |   ,    |   .    |   /    |osm_sft?|
    '--------------------------+--------+--------+--------|        |--------+--------+--------+--------------------------'
                               |gui/esc |  spc   |alt/tab |        |osm_sft |  ent   |  bspc  |
                               '--------+--------+--------|        |--------+--------+--------'
@@ -83,7 +84,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_GRV,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,             KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    _______,
     KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,             KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSLS,
     KC_ESC,  KC_A,    KC_S,    KC_D,    LWR_F,   KC_G,             KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT,
-    OSM_SFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,             KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, OSM_SFT,
+    OSM_SFT, RSE_Z,   KC_X,    KC_C,    KC_V,    KC_B,             KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, OSM_SFT,
                                GUI_ESC, KC_SPC,  ALT_TAB,          OSM_SFT, KC_ENT,  KC_BSPC,
                                         OSL_LWR, KC_LCTL,          RAISE,   OSL_LWR
   ),
