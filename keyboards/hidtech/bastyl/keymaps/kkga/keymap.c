@@ -10,40 +10,25 @@ enum layers {
   _ADJ,
 };
 
-#define      CTL_ESC  CTL_T(KC_ESC)
-#define      GUI_ESC  GUI_T(KC_ESC)
-#define      GUI_DEL  GUI_T(KC_DEL)
-#define      CTL_TAB  CTL_T(KC_TAB)
-#define      CTL_SPC  CTL_T(KC_SPC)
-#define      ALT_TAB  ALT_T(KC_TAB)
-#define      GUI_TAB  GUI_T(KC_TAB)
-#define      OSM_SFT  OSM(MOD_LSFT)
-
-// bottom row mods
-#define      CTL_Z    CTL_T(KC_Z)
-#define      ALT_X    ALT_T(KC_X)
-#define      GUI_C    GUI_T(KC_C)
-#define      SFT_BSLS SFT_T(KC_BSLS)
-#define      CTL_SLSH CTL_T(KC_SLSH)
-#define      ALT_DOT  ALT_T(KC_DOT)
-#define      GUI_COMM GUI_T(KC_COMM)
-
+// layers
 #define      RAISE    MO(_RSE)
 #define      LOWER    MO(_LWR)
 #define      ADJUST   MO(_ADJ)
 #define      OSL_LWR  OSL(_LWR)
+#define      OSL_RSE  OSL(_RSE)
 #define      LWR_F    LT(_LWR, KC_F)
 #define      RSE_Z    LT(_RSE, KC_Z)
-#define      RSE_ESC  LT(_RSE, KC_ESC)
 #define      RSE_TAB  LT(_RSE, KC_TAB)
-#define      RSE_BSP  LT(_RSE, KC_BSPC)
-#define      LWR_ESC  LT(_LWR, KC_ESC)
-#define      LWR_DEL  LT(_LWR, KC_DEL)
-#define      LWR_BSP  LT(_LWR, KC_BSPC)
 
-#define      SFT_SPC  SFT_T(KC_SPC)
-#define      SFT_ENT  SFT_T(KC_ENT)
+// mods
+#define      OSM_GUI  OSM(MOD_LGUI)
+#define      OSM_SFT  OSM(MOD_LSFT)
+#define      OSM_CTL  OSM(MOD_LCTL)
+#define      OSM_ALT  OSM(MOD_LALT)
+#define      OSM_HPR  OSM(MOD_HYPR)
+#define      GUI_ESC  MT(MOD_LGUI, KC_ESC)
 
+// actions
 #define      UNDO     KC_UNDO
 #define      CUT      KC_CUT
 #define      COPY     KC_COPY
@@ -70,23 +55,23 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    ,-----------------------------------------------------.        ,-----------------------------------------------------.
    |   `    |   1    |   2    |   3    |   4    |   5    |        |   6    |   7    |   8    |   9    |   0    |  ????  |
    |--------+--------+--------+--------+--------+--------|        |--------+--------+--------+--------+--------+--------|
-   |  tab   |   q    |   w    |   e    |   r    |   t    |        |   y    |   u    |   i    |   o    |   p    |   \    |
+   |rse/tab |   q    |   w    |   e    |   r    |   t    |        |   y    |   u    |   i    |   o    |   p    |   \    |
    |--------+--------+--------+--------+--------+--------|        |--------+--------+--------+--------+--------+--------|
-   |  esc?  |   a    |   s    |   d    | lwr-f  |   g    |        |   h    |   j    |   k    |   l    |   ;    |   '    |
+   |  esc   |   a    |   s    |   d    | lwr-f  |   g    |        |   h    |   j    |   k    |   l    |   ;    |   '    |
    |--------+--------+--------+--------+--------+--------|        |--------+--------+--------+--------+--------+--------|
-   |osm_sft | rse-z  |   x    |   c    |   v    |   b    |        |   n    |   m    |   ,    |   .    |   /    |osm_sft?|
+   |  sft   |   z    |   x    |   c    |   v    |   b    |        |   n    |   m    |   ,    |   .    |   /    |  sft   |
    '--------------------------+--------+--------+--------|        |--------+--------+--------+--------------------------'
-                              |gui/esc |  spc   |alt/tab |        |osm_sft |  ent   |  bspc  |
+                              |gui/esc |  spc   |  alt   |        | hyper  |  ent   |  bspc  |
                               '--------+--------+--------|        |--------+--------+--------'
-                                       | lower  |  ctl   |        | raise  | lower? |
+                                       | lower  |  ctl   |        | raise  | lower  |
                                        '--------+--------'        '--------+--------'                                    */
   [_BSE] = LAYOUT(
     KC_GRV,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,             KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    _______,
-    KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,             KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSLS,
+    RSE_TAB, KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,             KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSLS,
     KC_ESC,  KC_A,    KC_S,    KC_D,    LWR_F,   KC_G,             KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT,
-    OSM_SFT, RSE_Z,   KC_X,    KC_C,    KC_V,    KC_B,             KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, OSM_SFT,
-                               GUI_ESC, KC_SPC,  ALT_TAB,          OSM_SFT, KC_ENT,  KC_BSPC,
-                                        OSL_LWR, KC_LCTL,          RAISE,   OSL_LWR
+    OSM_SFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,             KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, OSM_SFT,
+                               GUI_ESC, KC_SPC,  OSM_ALT,          OSM_HPR, KC_ENT,  KC_BSPC,
+                                        OSL_LWR, OSM_CTL,          OSL_RSE, OSL_LWR
   ),
 
   /* LOWER
