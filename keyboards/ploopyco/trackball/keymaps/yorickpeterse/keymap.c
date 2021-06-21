@@ -23,9 +23,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         // Top left
         RCLICK,
         // Top right
-        MCLICK,
+        NEXT,
         // Bottom right
-        SNIPER_BUTTON
+        PREV
     )
 };
 
