@@ -54,17 +54,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    |--------+--------+--------+--------+--------+--------|        |--------+--------+--------+--------+--------+--------|
    |  sft   |   z    |   x    |   c    |   v    |   b    |        |   n    |   m    |   ,    |   .    |   /    |  sft   |
    '--------------------------+--------+--------+--------|        |--------+--------+--------+--------------------------'
-                              |  GUI   | SPACE  |  ALT   |        | HYPER  | RETURN |  BSPC  |
+                              |  GUI   | SPACE  |  CTRL  |        | HYPER  | RETURN |  BSPC  |
                               '--------+--------+--------|        |--------+--------+--------'
-                                       | LOWER  |  CTRL  |        | RAISE  | LOWER  |
+                                       |  ALT   | LOWER  |        | RAISE  | SHIFT  |
                                        '--------+--------'        '--------+--------'                                    */
   [_BSE] = LAYOUT(
     KC_GRV,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,             KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_TILD,
     KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,             KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSLS,
     KC_ESC,  KC_A,    KC_S,    KC_D,    LWR_F,   KC_G,             KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT,
     OSM_SFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,             KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, OSM_SFT,
-                               GUI_ESC, KC_SPC,  OSM_ALT,          OSM_HPR, KC_ENT,  KC_BSPC,
-                                        OSL_LWR, OSM_CTL,          OSL_RSE, OSL_LWR
+                               GUI_ESC, KC_SPC,  OSM_CTL,          OSM_HPR, KC_ENT,  KC_BSPC,
+                                        OSM_ALT, OSL_LWR,          OSL_RSE, OSM_SFT
   ),
 
   /* LOWER
