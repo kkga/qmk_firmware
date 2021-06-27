@@ -1,5 +1,9 @@
 /* copyright 2021 gadzhi kharkharov <me@kkga.me> */
 
+#ifdef CONSOLE_ENABLE
+#include "print.h"
+#endif
+
 #include QMK_KEYBOARD_H
 
 enum layers {
@@ -27,6 +31,8 @@ enum layers {
 #define      OSM_ALT  OSM(MOD_LALT)
 #define      OSM_HPR  OSM(MOD_HYPR)
 #define      GUI_ESC  MT(MOD_LGUI, KC_ESC)
+#define      ALT_Z    MT(MOD_LALT, KC_Z)
+#define      ALT_SLS  MT(MOD_LALT, KC_SLSH)
 
   /* Keyboard layout
    ,-----------------------------------------------------.        ,-----------------------------------------------------.
@@ -53,19 +59,19 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    |--------+--------+--------+--------+--------+--------|        |--------+--------+--------+--------+--------+--------|
    |  esc   |   a    |   s    |   d    | lwr-f  |   g    |        |   h    |   j    |   k    |   l    |   ;    |   '    |
    |--------+--------+--------+--------+--------+--------|        |--------+--------+--------+--------+--------+--------|
-   |  sft   |   z    |   x    |   c    |   v    |   b    |        |   n    |   m    |   ,    |   .    |   /    |  sft   |
+   |  sft   | alt-z  |   x    |   c    |   v    |   b    |        |   n    |   m    |   ,    |   .    | alt-/  |  sft   |
    '--------------------------+--------+--------+--------|        |--------+--------+--------+--------------------------'
                               |  GUI   | SPACE  |  CTRL  |        | RAISE  | RETURN |  BSPC  |
                               '--------+--------+--------|        |--------+--------+--------'
-                                       |  ALT   | LOWER  |        | LOWER  | HYPER  |
+                                       |  ALT   | LOWER  |        | LOWER  | SHIFT  |
                                        '--------+--------'        '--------+--------'                                    */
   [_BSE] = LAYOUT(
     KC_GRV,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,             KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_TILD,
     KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,             KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSLS,
     KC_ESC,  KC_A,    KC_S,    KC_D,    LWR_F,   KC_G,             KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT,
-    OSM_SFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,             KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, OSM_SFT,
-                               GUI_ESC, KC_SPC,  OSM_CTL,          OSL_RSE, KC_ENT,  KC_BSPC,
-                                        OSM_ALT, OSL_LWR,          OSL_LWR, OSM_HPR
+    OSM_SFT, ALT_Z,   KC_X,    KC_C,    KC_V,    KC_B,             KC_N,    KC_M,    KC_COMM, KC_DOT,  ALT_SLS, OSM_SFT,
+                               KC_LGUI, KC_SPC,  KC_LCTL,          RAISE,   KC_ENT,  KC_BSPC,
+                                        KC_LALT, LOWER,            LOWER,   KC_RSFT
   ),
 
   /* LOWER
@@ -84,7 +90,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                        '--------+--------'        '--------+--------'                                   */
   [_LWR] = LAYOUT(
     KC_TILD, KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC,          KC_CIRC, KC_AMPR, KC_ASTR, KC_UNDS, KC_EXLM, _______,
-    _______, KC_LCBR, KC_PGUP, KC_WH_U, KC_PGDN, KC_RCBR,	         KC_LABK, KC_MINS, KC_EQL,  KC_PLUS, KC_RABK, KC_PIPE,
+    _______, KC_LCBR, KC_PGUP, KC_WH_U, KC_PGDN, KC_RCBR,	       KC_LABK, KC_MINS, KC_EQL,  KC_PLUS, KC_RABK, KC_PIPE,
     _______, KC_LPRN, KC_BTN2, KC_WH_D, KC_BTN1, KC_RPRN,          KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, KC_COLN, KC_DQUO,
     _______, KC_LBRC, KC_WBAK, KC_BTN3, KC_WFWD, KC_RBRC,          KC_HOME, KC_PGDN, KC_PGUP, KC_END,  KC_QUES, _______,
                                _______, _______, _______,          _______, _______, _______,
@@ -160,3 +166,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                         _______, _______,          _______, _______
   ),
 };
+
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+    #ifdef CONSOLE_ENABLE
+        if (record->event.pressed) {
+            uprintf("0x%04X,%u,%u,%u\n", keycode, record->event.key.row, record->event.key.col, get_highest_layer(layer_state));
+        }
+    #endif
+    switch (keycode) {
+    //...
+    }
+    return true;
+}
