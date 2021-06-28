@@ -14,6 +14,23 @@ enum layers {
   _ADJ,
 };
 
+// tap-dance
+enum {
+    SCL_CL, // ;:
+    LR_CBR, // {}
+    LR_PRN, // ()
+    LR_BRC,  // []
+    LR_ABR, // <>
+};
+
+qk_tap_dance_action_t tap_dance_actions[] = {
+    [SCL_CL] = ACTION_TAP_DANCE_DOUBLE(KC_SCLN, KC_COLN),
+    [LR_CBR] = ACTION_TAP_DANCE_DOUBLE(KC_LCBR, KC_RCBR),
+    [LR_PRN] = ACTION_TAP_DANCE_DOUBLE(KC_LPRN, KC_RPRN),
+    [LR_BRC] = ACTION_TAP_DANCE_DOUBLE(KC_LBRC, KC_RBRC),
+    [LR_ABR] = ACTION_TAP_DANCE_DOUBLE(KC_LABK, KC_RABK),
+};
+
 // layers
 #define      RAISE    MO(_RSE)
 #define      LOWER    MO(_LWR)
@@ -58,7 +75,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    |--------+--------+--------+--------+--------+--------|        |--------+--------+--------+--------+--------+--------|
    |  TAB   |   Q    |   W    |   E    |   R    |   T    |        |   Y    |   U    |   I    |   O    |   P    |   \    |
    |--------+--------+--------+--------+--------+--------|        |--------+--------+--------+--------+--------+--------|
-   |CTL-ESC |   A    |   S    |   D    | LWR-F  |   G    |        |   H    |   J    |   K    |   L    |   ;    |   '    |
+   |CTL-ESC |   A    |   S    |   D    |   F    |   G    |        |   H    |   J    |   K    |   L    |   ;    |   '    |
    |--------+--------+--------+--------+--------+--------|        |--------+--------+--------+--------+--------+--------|
    | SHIFT  | ALT-Z  |   X    |   C    |   V    |   B    |        |   N    |   M    |   ,    |   .    | ALT-/  | SHIFT  |
    '--------------------------+--------+--------+--------|        |--------+--------+--------+--------------------------'
@@ -69,7 +86,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_BSE] = LAYOUT(
     KC_GRV,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,             KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_TILD,
     KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,             KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSLS,
-    KC_ESC,  KC_A,    KC_S,    KC_D,    LWR_F,   KC_G,             KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT,
+    CTL_ESC, KC_A,    KC_S,    KC_D,    KC_F,    KC_G,             KC_H,    KC_J,    KC_K,    KC_L,    TD(SCL_CL), KC_QUOT,
     KC_LSFT, ALT_Z,   KC_X,    KC_C,    KC_V,    KC_B,             KC_N,    KC_M,    KC_COMM, KC_DOT,  ALT_SLS, KC_RSFT,
                                KC_LGUI, KC_SPC,  KC_LCTL,          OSM_SFT, KC_ENT,  KC_BSPC,
                                         LOWER,   RAISE,            RAISE,   LOWER
@@ -77,23 +94,23 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   /* LOWER
    ,-----------------------------------------------------.        ,-----------------------------------------------------.
-   |        |   !    |   @    |   #    |   $    |   %    |        |   ^    |   &    |   *    |   _    |   !    |        |
+   |        |        |        |        |        |        |        |        |        |        |        |        |        |
    |--------+--------+--------+--------+--------+--------|        |--------+--------+--------+--------+--------+--------|
-   |        |   {    |   !    |   @    |   |    |   }    |        |   -    |   7    |   8    |   9    |   +    |        |
+   |        |   !    |   @    |   #    |   $    |   %    |        |   -    |   7    |   8    |   9    |   +    |        |
    |--------+--------+--------+--------+--------+--------|        |--------+--------+--------+--------+--------+--------|
-   |        |   (    |   #    |   $    |   `    |   )    |        |   *    |   4    |   5    |   6    |   =    |        |
+   |        |   ~    |   []   |   {}   |   ()   |   <>   |        |   *    |   4    |   5    |   6    |   =    |        |
    |--------+--------+--------+--------+--------+--------|        |--------+--------+--------+--------+--------+--------|
-   |        |   [    |   %    |   ^    |   ~    |   ]    |        |   &    |   1    |   2    |   3    |   \    |        |
+   |        |   `    |   ^    |   &    |   *    |   |    |        |   \    |   1    |   2    |   3    |   /    |        |
    '--------------------------+--------+--------+--------|        |-----------------+--------+--------+--------+--------'
                               |        |        |        |        |        |        |        |
                               '--------+--------+--------|        |--------+--------+--------'
                                        |   '    |   "    |        |   _    |   0    |
                                        '--------+--------'        '--------+--------'                                   */
   [_LWR] = LAYOUT(
-    _______, KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC,          KC_CIRC, KC_AMPR, KC_ASTR, KC_UNDS, KC_EXLM, _______,
-    _______, KC_LCBR, KC_EXLM, KC_AT,   KC_PIPE, KC_RCBR,	       KC_MINS, KC_7,    KC_8,    KC_9,    KC_PLUS, _______,
-    _______, KC_LPRN, KC_HASH, KC_DLR,  KC_GRV,  KC_RPRN,          KC_ASTR, KC_4,    KC_5,    KC_6,    KC_EQL,  _______,
-    _______, KC_LBRC, KC_PERC, KC_CIRC, KC_TILD, KC_RBRC,          KC_0,    KC_1,    KC_2,    KC_3,    KC_SLSH, _______,
+    _______, _______, _______, _______, _______, _______,          _______, _______, _______, _______, _______, _______,
+    _______, KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC,	       KC_MINS, KC_7,    KC_8,    KC_9,    KC_PLUS, _______,
+    _______, KC_TILD,TD(LR_BRC),TD(LR_CBR),TD(LR_PRN),TD(LR_ABR),  KC_ASTR, KC_4,    KC_5,    KC_6,    KC_EQL,  _______,
+    _______, KC_GRV,  KC_CIRC, KC_AMPR, KC_ASTR, KC_PIPE,          KC_BSLS, KC_1,    KC_2,    KC_3,    KC_SLSH, _______,
                                _______, _______, _______,          _______, _______, _______,
                                         KC_QUOT, KC_DQUO,          KC_UNDS, KC_0
   ),
