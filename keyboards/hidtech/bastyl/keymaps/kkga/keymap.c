@@ -17,13 +17,15 @@ enum layers {
 // tap-dance
 enum td {
     SCL_CL, // ;:
+    Q_DQ,   // '"
     LR_CBR, // {}
     LR_PRN, // ()
-    LR_BRC,  // []
+    LR_BRC, // []
     LR_ABR, // <>
 };
 qk_tap_dance_action_t tap_dance_actions[] = {
     [SCL_CL] = ACTION_TAP_DANCE_DOUBLE(KC_SCLN, KC_COLN),
+    [Q_DQ]   = ACTION_TAP_DANCE_DOUBLE(KC_QUOT, KC_DQUO),
     [LR_CBR] = ACTION_TAP_DANCE_DOUBLE(KC_LCBR, KC_RCBR),
     [LR_PRN] = ACTION_TAP_DANCE_DOUBLE(KC_LPRN, KC_RPRN),
     [LR_BRC] = ACTION_TAP_DANCE_DOUBLE(KC_LBRC, KC_RBRC),
@@ -74,7 +76,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    |--------+--------+--------+--------+--------+--------|        |--------+--------+--------+--------+--------+--------|
    |  TAB   |   Q    |   W    |   E    |   R    |   T    |        |   Y    |   U    |   I    |   O    |   P    |   \    |
    |--------+--------+--------+--------+--------+--------|        |--------+--------+--------+--------+--------+--------|
-   |CTL-ESC |   A    |   S    |   D    |   F    |   G    |        |   H    |   J    |   K    |   L    |   ;    |   '    |
+   |CTL-ESC |   A    |   S    |   D    |   F    |   G    |        |   H    |   J    |   K    |   L    |   ;:   |   '"   |
    |--------+--------+--------+--------+--------+--------|        |--------+--------+--------+--------+--------+--------|
    | SHIFT  | ALT-Z  |   X    |   C    |   V    |   B    |        |   N    |   M    |   ,    |   .    | ALT-/  | SHIFT  |
    '--------------------------+--------+--------+--------|        |--------+--------+--------+--------------------------'
@@ -85,7 +87,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_BSE] = LAYOUT(
     KC_GRV,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,             KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_TILD,
     KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,             KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSLS,
-    CTL_ESC, KC_A,    KC_S,    KC_D,    KC_F,    KC_G,             KC_H,    KC_J,    KC_K,    KC_L,    TD(SCL_CL), KC_QUOT,
+    CTL_ESC, KC_A,    KC_S,    KC_D,    KC_F,    KC_G,             KC_H,    KC_J,    KC_K,    KC_L,    TD(SCL_CL),TD(Q_DQ),
     KC_LSFT, ALT_Z,   KC_X,    KC_C,    KC_V,    KC_B,             KC_N,    KC_M,    KC_COMM, KC_DOT,  ALT_SLS, KC_RSFT,
                                KC_LGUI, KC_SPC,  KC_LCTL,          OSM_SFT, KC_ENT,  KC_BSPC,
                                         LOWER,   RAISE,            RAISE,   LOWER
@@ -99,7 +101,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    |--------+--------+--------+--------+--------+--------|        |--------+--------+--------+--------+--------+--------|
    |        |   ~    |   []   |   {}   |   ()   |   <>   |        |   -    |   4    |   5    |   6    |   +    |        |
    |--------+--------+--------+--------+--------+--------|        |--------+--------+--------+--------+--------+--------|
-   |        |   `    |   ^    |   &    |   *    |   |    |        |   \    |   1    |   2    |   3    |   /    |        |
+   |        |   `    |   ^    |   &    |   ?    |   |    |        |   \    |   1    |   2    |   3    |   /    |        |
    '--------------------------+--------+--------+--------|        |-----------------+--------+--------+--------+--------'
                               |        |        |        |        |        |        |        |
                               '--------+--------+--------|        |--------+--------+--------'
@@ -109,7 +111,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______, _______, _______, _______, _______, _______,          _______, _______, _______, _______, _______, _______,
     _______, KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC,	       KC_ASTR, KC_7,    KC_8,    KC_9,    KC_EQL,  _______,
     _______, KC_TILD,TD(LR_BRC),TD(LR_CBR),TD(LR_PRN),TD(LR_ABR),  KC_MINS, KC_4,    KC_5,    KC_6,    KC_PLUS, _______,
-    _______, KC_GRV,  KC_CIRC, KC_AMPR, KC_ASTR, KC_PIPE,          KC_BSLS, KC_1,    KC_2,    KC_3,    KC_SLSH, _______,
+    _______, KC_GRV,  KC_CIRC, KC_AMPR, KC_QUES, KC_PIPE,          KC_BSLS, KC_1,    KC_2,    KC_3,    KC_SLSH, _______,
                                _______, _______, _______,          _______, _______, _______,
                                         KC_QUOT, KC_DQUO,          KC_UNDS, KC_0
   ),
