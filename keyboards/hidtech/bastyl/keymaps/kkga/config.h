@@ -10,12 +10,8 @@
 // Apply the modifier on keys that are tapped during a short hold of a modtap
 #define PERMISSIVE_HOLD
 
+// Tapping this number of times holds the key until tapped once again.
+#define ONESHOT_TAP_TOGGLE 3
 
-// #define MOUSEKEY_MOVE_DELTA 2
-// #define MOUSEKEY_WHEEL_DELAY 50
-// #define MOUSEKEY_WHEEL_INTERVAL 50
-// #define MOUSEKEY_WHEEL_MAX_SPEED 8
-// #define MOUSEKEY_WHEEL_TIME_TO_MAX 40
-
-// #define MK_KINETIC_SPEED
-// #define MOUSEKEY_WHEEL_INITIAL_MOVEMENTS 1
+// Time (in ms) before the one shot key is released
+#define ONESHOT_TIMEOUT 3000
