@@ -1,5 +1,3 @@
-/* copyright 2021 gadzhi kharkharov <me@kkga.me> */
-
 #include QMK_KEYBOARD_H
 
 enum layers {
