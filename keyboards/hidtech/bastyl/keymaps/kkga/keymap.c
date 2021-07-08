@@ -53,7 +53,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    |--------+--------+--------+--------+--------+--------|        |--------+--------+--------+--------+--------+--------|
    |CTL-ESC |   A    |   S    |   D    | LWR-F  |   G    |        |   H    |   J    |   K    |   L    |   ;    |   '    |
    |--------+--------+--------+--------+--------+--------|        |--------+--------+--------+--------+--------+--------|
-   | SHIFT  | ALT-Z  |   X    |   C    |   V    |   B    |        |   N    |   M    |   ,    |   .    | ALT-/  |  ???   |
+   | SHIFT  | ALT-Z  |   X    |   C    |   V    |   B    |        |   N    |   M    |   ,    |   .    | ALT-/  | SHIFT  |
    '--------------------------+--------+--------+--------|        |--------+--------+--------+--------------------------'
                               | O-GUI  | SPACE  |CTL-TAB |        | O-SFT  | RETURN |  BSPC  |
                               '--------+--------+--------|        |--------+--------+--------'
@@ -63,7 +63,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_GRV,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,             KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_TILD,
     KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,             KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSLS,
     CTL_ESC, KC_A,    KC_S,    KC_D,    LWR_F,   KC_G,             KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT,
-    KC_LSFT, ALT_Z,   KC_X,    KC_C,    KC_V,    KC_B,             KC_N,    KC_M,    KC_COMM, KC_DOT,  ALT_SLS, _______,
+    KC_LSFT, ALT_Z,   KC_X,    KC_C,    KC_V,    KC_B,             KC_N,    KC_M,    KC_COMM, KC_DOT,  ALT_SLS, KC_RSFT,
                                O_GUI,   KC_SPC,  CTL_TAB,          O_SFT,   KC_ENT,  KC_BSPC,
                                         LWR,     RSE,              RSE,     LWR
   ),
@@ -97,9 +97,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    |--------+--------+--------+--------+--------+--------|        |--------+--------+--------+--------+--------+--------|
    |        |        | PG_UP  |   UP   | PG_DN  |        |        |        |        |        |        |        |  F12   |
    |--------+--------+--------+--------+--------+--------|        |--------+--------+--------+--------+--------+--------|
-   |        |  HOME  |  LEFT  |  DOWN  | RIGHT  |  END   |        |        |        |        |        |        |  INS   |
+   |        |  HOME  |  LEFT  |  DOWN  | RIGHT  |  END   |        |  LEFT  |  DOWN  |   UP   | RIGHT  |        |  INS   |
    |--------+--------+--------+--------+--------+--------|        |--------+--------+--------+--------+--------+--------|
-   |        |        |        |        |        |        |        |        |        |        |        |        |  DEL   |
+   |        |        |        |        |        |        |        |  HOME  | PG_DN  | PG_UP  |  END   |        |  DEL   |
    '--------------------------+--------+--------+--------|        |-----------------+--------+--------+--------+--------'
                               |        |        |        |        |        |        |        |
                               '--------+--------+--------|        |--------+--------+--------'
@@ -108,8 +108,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_RSE] = LAYOUT(
     _______, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,            KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,
     _______, _______, KC_PGUP, KC_UP,   KC_PGDN, _______,          _______, _______, _______, _______, _______, KC_F12,
-    _______, KC_HOME, KC_LEFT, KC_DOWN, KC_RGHT, KC_END,           _______, _______, _______, _______, _______, KC_INS,
-    _______, _______, _______, _______, _______, _______,          _______, _______, _______, _______, _______, KC_DEL,
+    _______, KC_HOME, KC_LEFT, KC_DOWN, KC_RGHT, KC_END,           KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, _______, KC_INS,
+    _______, _______, _______, _______, _______, _______,          KC_HOME, KC_PGDN, KC_PGUP, KC_END,  _______, KC_DEL,
                                _______, _______, _______,          _______, _______, _______,
                                         ADJ,     XXXXXXX,          XXXXXXX, ADJ
   ),
