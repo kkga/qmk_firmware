@@ -76,7 +76,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    |--------+--------+--------+--------+--------+--------|        |--------+--------+--------+--------+--------+--------|
    |        |   (    |   `    |   ^    |   ~    |   )    |        |  LEFT  |  DOWN  |   UP   | RIGHT  |   :    |   "    |
    |--------+--------+--------+--------+--------+--------|        |--------+--------+--------+--------+--------+--------|
-   |        |   [    |   ]    |   &    |   {    |   }    |        |  HOME  |  END   |   <    |    >   |   ?    |        |
+   |        |   {    |   [    |   &    |   ]    |   }    |        |  HOME  |  END   |   <    |    >   |   ?    |        |
    '--------------------------+--------+--------+--------|        |-----------------+--------+--------+--------+--------'
                               |        |        |        |        |        |        |        |
                               '--------+--------+--------|        |--------+--------+--------'
@@ -86,7 +86,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______, _______, _______, _______, _______, _______,          _______, _______, _______, _______, _______, _______,
     _______, KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC,	       KC_UNDS, KC_MINS, KC_ASTR, KC_PLUS, KC_EQL,  KC_PIPE,
     _______, KC_LPRN, KC_GRV,  KC_CIRC, KC_TILD, KC_RPRN,          KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, KC_COLN, KC_DQUO,
-    _______, KC_LBRC, KC_RBRC, KC_AMPR, KC_LCBR, KC_RCBR,          KC_HOME, KC_END,  KC_LABK, KC_RABK, KC_QUES, _______,
+    _______, KC_LCBR, KC_LBRC, KC_AMPR, KC_RBRC, KC_RCBR,          KC_HOME, KC_END,  KC_LABK, KC_RABK, KC_QUES, _______,
                                _______, _______, _______,          _______, _______, _______,
                                         XXXXXXX, ADJ,              ADJ,     XXXXXXX
   ),
